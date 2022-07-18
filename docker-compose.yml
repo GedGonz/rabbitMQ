@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+    rabbitmq:
+        image: rabbitmq:3.8-management-alpine
+        container_name: rabbit2
+        environment:
+         - RABBITMQ_DEFAULT_USER=rabbit
+         - RABBITMQ_DEFAULT_PASS=rabbit
+        volumes:
+            - ./definicion/rabbirt_config.json:/etc/rabbitmq/definitions.json
+        ports:
+            - 5672:5672
+            - 15672:15672
